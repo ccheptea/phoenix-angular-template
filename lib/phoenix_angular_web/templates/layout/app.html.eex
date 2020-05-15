@@ -7,25 +7,27 @@
     <title><%= assigns[:page_title] || "PhoenixAngular · Phoenix Framework" %></title>
     <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
     <%= csrf_meta_tag() %>
+    <base href="/">
   </head>
   <body>
-    <header>
-      <section class="container">
-        <nav role="navigation">
-          <ul>
-            <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>
-          </ul>
-        </nav>
-        <a href="https://phoenixframework.org/" class="phx-logo">
-          <img src="<%= Routes.static_path(@conn, "/images/phoenix.png") %>" alt="Phoenix Framework Logo"/>
-        </a>
-      </section>
-    </header>
-    <main role="main" class="container">
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-      <%= render @view_module, @view_template, assigns %>
-    </main>
-    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+    <app-root></app-root>
+
+    <script src="<%= Routes.static_path(@conn, "/frontend/runtime-es2015.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/runtime-es5.js") %>" nomodule defer></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/polyfills-es5.js") %>" nomodule defer></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/polyfills-es2015.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/styles-es2015.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/styles-es5.js") %>" nomodule defer></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/vendor-es2015.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/vendor-es5.js") %>" nomodule defer></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/main-es2015.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/main-es5.js") %>" nomodule defer></script>
+
+
+    <script src="<%= Routes.static_path(@conn, "/frontend/polyfills.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/styles.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/runtime.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/vendor.js") %>" type="module"></script>
+    <script src="<%= Routes.static_path(@conn, "/frontend/main.js") %>" type="module"></script>
   </body>
 </html>
